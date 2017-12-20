@@ -262,7 +262,7 @@ h1 {
 }
 
 #numdate{
-  font-size: 150px;
+  font-size: 30px;
   font-family: 'Bungee Inline', cursive;
 }
 
@@ -300,25 +300,9 @@ h1 {
 
 .descriptor{
 
-  text-align: justify;
+  text-align: left;
   font-family: Helvetica Neue;
   font-size: 24px;
-}
-
-ul {
-  list-style-type: none;
-    font-family: Monaco;
-    font-size: 36px;
-    text-align: left;
-}
-
-li:hover {
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    cursor: pointer;
-    letter-spacing: 5px;
 }
 
 /* ==========================================================================
@@ -345,10 +329,10 @@ li:hover {
     background: #29afc4;
     background-size: cover; }
   #slide01 .bcg {
-    background: url(../img/adalovelace.jpg) no-repeat center center;
+    background: url(../images/hedy.jpeg) no-repeat center center;
     background-size: cover; }
   #slide02 .bcg {
-    background: url(../img/gracehopper.jpg) no-repeat center center;
+    background: url(../images/ad.png) no-repeat center center;
     background-size: cover; }
   #slide03 .bcg {
     background: url(../img/womenswork.jpg) no-repeat center center;
@@ -359,7 +343,7 @@ li:hover {
     background-size: cover;
     opacity: 0.7; }
   #slide05 .bcg {
-    background: url(../img/wargames.jpg) no-repeat center center;
+    background: url(../images/barbie.jpg) no-repeat center center;
     background-size: cover;
     opacity: 0.7; }
   #slide06 .bcg {
@@ -370,7 +354,23 @@ li:hover {
     background: #29afc4;
     background-size: cover;
     opacity: 0.7; }
+  #slidemale .bcg {
+    background: url(../images/males.png) no-repeat center center;
+    background-size: cover;
+    opacity: 0.7; 
+  }
+  #slideextra .bcg{
+    background: url(../images/nsf.png) no-repeat center center;
+    background-size: cover;
+    opacity: 0.7; 
 
+  }
+  #slidelast {
+    background: url(../images/rosie.jpg) no-repeat center center;
+    background-size: cover;
+    opacity: 0.7; 
+
+  }
 
 /* =Navigation */
 nav {
