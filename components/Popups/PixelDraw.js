@@ -11,16 +11,16 @@ class PixelDraw extends Popup {
         this.colorPalette = ["#fc5e03", "#4287f5", "#000000"];
         this.color = this.colorPalette[0];
 
-        this.buttonOffsetLeft = 12;
-        this.buttonOffsetTop = 10;
+        this.buttonOffsetLeft = 6;
+        this.buttonOffsetTop = 23;
     }
 
     update(newX, newY, offset) {
         this.x = Math.round(newX-offset);
         this.y = Math.round(newY);
 
-        this.element.style.left = this.x*2 + this.buttonOffsetLeft + "px";
-        this.element.style.top = this.y*2  + this.buttonOffsetTop + this.canvasHeight*2 +32+ "px";
+        this.element.style.left = this.x + this.buttonOffsetLeft + "px";
+        this.element.style.top = this.y + this.buttonOffsetTop + this.canvasHeight+ "px";
         this.element.style.zIndex = "1";
     }
 
@@ -88,8 +88,8 @@ class PixelDraw extends Popup {
         this.element.classList.add("ColorRow");
         this.element.style.zIndex = "-1";
         this.element.style.position = "absolute";
-        this.element.style.left = this.x*2 + this.buttonOffsetLeft + "px";
-        this.element.style.top = this.y*2  + this.buttonOffsetTop + this.canvasHeight*2 +32+ "px";
+        this.element.style.left = this.x + this.buttonOffsetLeft + "px";
+        this.element.style.top = this.y + this.buttonOffsetTop + this.canvasHeight+ "px";
 
         this.element.innerHTML =[`
             <button class="Color_button active"/>
