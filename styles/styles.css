@@ -1,0 +1,28 @@
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #4287f5; */
+    /* background-image:
+      linear-gradient(to right, grey 1px, transparent 1px),
+      linear-gradient(to bottom, grey 1px, transparent 1px); */
+    background-image: url(../svg/grid.svg);
+}
+
+.canvas-container {
+    height: 100vh;
+    width: 100vh;
+    transform: scale(2);
+    transform-origin: 0 0;
+    overflow: hidden;
+}
+
+/* super cool and important css style */
+.canvas-container canvas {
+  image-rendering: pixelated;
+}
