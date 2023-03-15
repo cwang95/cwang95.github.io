@@ -1,0 +1,16 @@
+.ColorRow {
+    display: flex;
+    justify-content: center; /* or space-between, space-around, etc. */
+    align-items: center; /* or stretch, flex-start, flex-end, etc. */
+  }
+  
+.Color_button {
+    width: 52px;
+    height: 52px;
+    margin-right: 10px;
+}
+
+.Color_button.active {
+  /* styles for active button */
+  border: 2px solid white;
+}
