@@ -35,8 +35,8 @@ class AsciiName {
 
         this.asciiNav.innerHTML =[`
             <button class="AsciiNavButtonLeft"><</button>
-            <button class="AsciiOptionButton active" id={0}/>
-            <button class="AsciiOptionButton" id={1}/>
+            <button class="AsciiOptionButton" id={0}/>
+            <button class="AsciiOptionButton active" id={1}/>
             <button class="AsciiOptionButton" id={2}/>
             <button class="AsciiOptionButton" id={3}/>
             <button class="AsciiOptionButton" id={4}/>
