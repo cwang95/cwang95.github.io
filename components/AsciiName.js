@@ -2,7 +2,7 @@ class AsciiName {
     constructor(parent) {
         this.parent = parent;
         this.asciiNameElement = null;
-        this.selectedAscii = 0;
+        this.selectedAscii = 1;
         this.asciiOptions = [];
 
         this.numOptions = asciiNames.length;
