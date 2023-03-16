@@ -1,5 +1,7 @@
 const utils = {
-    
+    getInitialCoordinates(sizeX, sizeY, posX, posY) {
+        return { x: Math.floor(sizeX*posX), y: Math.floor(sizeY*posY )};
+    },
     // https://stackoverflow.com/questions/17130395/real-mouse-position-in-canvas
     getMousePos(evt, canvas, ctx) {
         const clientRect = canvas.getBoundingClientRect();

@@ -8,7 +8,7 @@ class Popup {
         this.x = config.x;
         this.y = config.y;
         this.image = new Image();
-        this.image.src = config.src || '/images/about.PNG';
+        this.image.src = config.src || 'assets/images/about.PNG';
         this.image.onload = () => {
             this.isLoaded = true;
         }
@@ -21,7 +21,9 @@ class Popup {
         this.topBarHeight = config.topBarHeight || 16;
 
         this.canvasOffset = 0;
-        
+
+        this.posX = config.posX,
+        this.posY = config.posY
     }
 
     update(newX, newY, offset) {
@@ -64,5 +66,8 @@ class Popup {
     }
 
     init() {
+        const {x, y} = utils.getInitialCoordinates(this.canvas.width, this.canvas.height, this.posX, this.posY);
+        this.x = x;
+        this.y = y;
     }
 }

@@ -11,7 +11,8 @@ body {
     /* background-image:
       linear-gradient(to right, grey 1px, transparent 1px),
       linear-gradient(to bottom, grey 1px, transparent 1px); */
-    background-image: url(../svg/grid.svg);
+    background-image: url(../assets/svg/grid.svg);
+    font-family: monospace;
 }
 
 .canvas-container {
