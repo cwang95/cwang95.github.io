@@ -48,7 +48,7 @@ class PixelDraw extends Popup {
         // console.log(contentBoundingBox);
         // console.log(bbox);
         if (utils.intersects(bbox, contentBoundingBox)) this.pixels[asCanvasCoord] = this.color;
-        console.log(this.pixels);
+        // console.log(this.pixels);
     }
 
     draw() {
@@ -86,7 +86,7 @@ class PixelDraw extends Popup {
         this.pixels = window.initialGrid;
         this.element = document.createElement("div");
         this.element.classList.add("ColorRow");
-        this.element.style.zIndex = "-1";
+        this.element.style.zIndex = "1";
         this.element.style.position = "absolute";
         this.element.style.left = this.x + this.buttonOffsetLeft + "px";
         this.element.style.top = this.y + this.buttonOffsetTop + this.canvasHeight+ "px";

@@ -1,0 +1,64 @@
+.Intro {
+    z-index: 2;
+    position: absolute;
+    max-width: 50vh;
+    min-width: 400px;
+    max-height: 70vh;
+    background: #f2f2f2;
+    top: 0;
+    left: 0%;
+    margin: 50px 0 0 50px;
+    border: 1px solid;
+    box-shadow: -10px -10px #4287f5, -9px -11px #000000,-11px -9px #000000, -20px -20px #000000;
+    display: flex;
+    flex-direction: column;
+}
+
+.Intro .IntroContent {
+    margin-left: 16px;
+    flex: 1 0 auto;
+}
+
+.Intro .IntroContent p {
+    margin: 4px;
+    /* margin-bottrom */
+    margin-bottom: 24px;
+    flex: 1 0 auto;
+}
+
+.Ascii { 
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.Ascii pre {
+    margin: 0;
+}
+
+.AsciiNav {
+    margin: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.AsciiNavButtonLeft,.AsciiNavButtonRight {
+    border: none;
+}
+ 
+.AsciiOptionButton {
+    margin: auto;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    border: 1px solid black;
+    margin: 4px;
+}
+
+.AsciiOptionButton.active {
+    border: 1px solid white;
+    background-color: black;
+}

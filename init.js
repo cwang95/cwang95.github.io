@@ -1,6 +1,5 @@
 window.addEventListener('load', function() {
-    const canvas = new Canvas(800, 900);
+    const canvas = new Canvas();
     canvas.init();
-    // init();
 });
   

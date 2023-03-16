@@ -18,7 +18,7 @@ class Canvas {
         this.moveListener = null;
 
         this.image = new Image();
-        this.image.src = '/images/about.PNG';
+        this.image.src = 'assets/images/about.PNG';
         this.image.onload = () => {
             this.isLoaded = true;
         }
@@ -75,8 +75,6 @@ class Canvas {
             const contentBoundingBox = utils.getBoundingBox(x, y + TOPBAR_HEIGHT, width, height - TOPBAR_HEIGHT);
 
             if (utils.intersects(mouseBox, topBarBoudingBox)) {
-              console.log(`Clicked on top bar ${this.popups[i].id}`);
-              
               // Flag isDragging to be true
               this.isDragging = true;
 
@@ -136,6 +134,7 @@ class Canvas {
             requestAnimationFrame(step);
         }
         step();
+        console.log(this.popups);
     }
 
     handleResize() {
@@ -158,44 +157,51 @@ class Canvas {
         };
     }
 
-    init() {
-        // this.popups.push({id: 1, x: 75 -15, y: 50 - 15, fill: "#444444", isDragging: false})
-        // this.popups.push({id: 2, x: 75 -25, y: 50 - 25, fill: "#800080", isDragging: false})
-        
-        // Do these as ratios instead?
-        this.popups.push(new Popup({x: 30, y: 5, canvas: this.canvas, id: 0}));
-        
-        // this.popups.push(new Popup({x: 150, y: 150, id: 1}));
+    initializePopups() {
         this.popups.push(new PixelDraw({
-            x: 400, 
-            y: 400, 
+            x: 600, 
+            y: 450, 
             canvas: this.canvas, 
             id: 2, 
-            src: "/images/pixel_draw_style2.png", 
+            src: "assets/images/pixel_draw_style2.png", 
             height: 320, 
             width: 320
         }));
-        // this.popups.push(new Popup({
-        //     x: 800, 
-        //     y: 300, 
-        //     canvas: this.canvas, 
-        //     id: 3, 
-        //     src: "/images/about_style2.png", 
-        //     height: 512, 
-        //     width: 512
-        // }));
+
+        this.popups.push(new Popup({
+            x: 800, 
+            y: 300,
+            x: 600, 
+            y: 30, 
+            canvas: this.canvas, 
+            id: 0,
+            posX: 0.45,
+            posY: 0.1
+        }));
+        
         this.popups.push(new GridPopup({
             x: 800, 
             y: 300, 
             canvas: this.canvas, 
             id: 3, 
-            src: "/images/about_transparent.png", 
+            src: "assets/images/about_transparent.png", 
             height: 320, 
-            width: 320
+            width: 320,
+            posX: 0.6,
+            posY: 0.25
         }));
-        this.popups[0].init();
-        this.popups[1].init();
-        this.popups[2].init();
+
+        for (let i = 0; i<this.popups.length; i++) {
+            this.popups[i].init();
+        }
+    }
+
+    init() {
+        const intro = new IntroModule();
+        intro.init();
+        
+        this.initializePopups();
+
         // this.popups[3].init();
         window.addEventListener('resize', this.debounce(this.handleResize.bind(this), 200));
 
