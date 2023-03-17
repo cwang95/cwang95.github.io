@@ -8,20 +8,23 @@ class PixelDraw extends Popup {
         this.canvasHeight = 236;
         this.pixelHeight = 5;
 
-        this.colorPalette = ["#fc5e03", "#4287f5", "#000000"];
+        this.colorPalette = ["#fc5e03", "#4287f5", "#000000", "#f2f2f2"];
         this.color = this.colorPalette[0];
 
         this.buttonOffsetLeft = 6;
         this.buttonOffsetTop = 23;
     }
 
-    update(newX, newY, offset) {
-        this.x = Math.round(newX-offset);
-        this.y = Math.round(newY);
-
+    updateMenu() {
         this.element.style.left = this.x + this.buttonOffsetLeft + "px";
         this.element.style.top = this.y + this.buttonOffsetTop + this.canvasHeight+ "px";
         this.element.style.zIndex = "1";
+    }
+
+    update(newX, newY, offset) {
+        this.x = Math.round(newX-offset);
+        this.y = Math.round(newY);
+        this.updateMenu();
     }
 
     getCanvasCoord(x, y) {
@@ -42,16 +45,22 @@ class PixelDraw extends Popup {
     }
 
     drawPixel(x, y) {
-        const {asCanvasCoord, isDrawn} = this.getCanvasCoord(x, y);
+        const {asCanvasCoord } = this.getCanvasCoord(x, y);
         const bbox = utils.getBoundingBox(x, y, 1, 1);
         const contentBoundingBox = utils.getBoundingBox(this.x, this.y + this.topBarHeight, this.canvasWidth, this.canvasHeight);
-        // console.log(contentBoundingBox);
-        // console.log(bbox);
         if (utils.intersects(bbox, contentBoundingBox)) this.pixels[asCanvasCoord] = this.color;
-        // console.log(this.pixels);
+    }
+
+    clearPixels() {
+        this.pixels = {};
     }
 
     draw() {
+        // draw background
+        this.ctx.beginPath();
+        this.ctx.fillStyle = "#f2f2f2";
+        this.ctx.fillRect(this.x,this.y + this.topBarHeight,this.canvasWidth+6, this.canvasHeight);
+
         this.isLoaded && this.ctx.drawImage(
             this.image, 
             this.imageOffsetWidth, //left cut 
@@ -86,6 +95,7 @@ class PixelDraw extends Popup {
         this.pixels = window.initialGrid;
         this.element = document.createElement("div");
         this.element.classList.add("ColorRow");
+        this.element.classList.add("DrawMenu");
         this.element.style.zIndex = "1";
         this.element.style.position = "absolute";
         this.element.style.left = this.x + this.buttonOffsetLeft + "px";
@@ -95,9 +105,11 @@ class PixelDraw extends Popup {
             <button class="Color_button active"/>
             <button class="Color_button"/>
             <button class="Color_button"/>
+            <button class="Color_button"/>
+            <button class="Delete_button">X</button>
         `]
 
-        this.colors = this.element.querySelectorAll("button");
+        this.colors = this.element.querySelectorAll(".Color_button");
 
         this.colors.forEach((color, idx)=> {
             color.style.backgroundColor = this.colorPalette[idx];
@@ -110,6 +122,11 @@ class PixelDraw extends Popup {
                 // Close message
                 this.setColor(this.colorPalette[idx]);
             })
+        })
+
+        this.deleteButton = this.element.querySelector(".Delete_button");
+        this.deleteButton.addEventListener("click", ()=> {
+            this.clearPixels();
         })
 
         document.body.appendChild(this.element);

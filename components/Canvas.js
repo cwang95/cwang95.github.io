@@ -163,7 +163,7 @@ class Canvas {
             y: 450, 
             canvas: this.canvas, 
             id: 2, 
-            src: "assets/images/pixel_draw_style2.png", 
+            src: "assets/images/pixeldraw_transparent.png", 
             height: 320, 
             width: 320
         }));
