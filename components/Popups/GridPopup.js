@@ -12,12 +12,14 @@ class GridPopup extends Popup {
     }
 
     drawGrid(x, y) {
-      
         this.offsetX = x%this.gridHeight;
         this.offsetY = y%this.gridHeight;
         this.ctx.beginPath();
+
+        // draw background
         this.ctx.fillStyle = "#4287f5";
         this.ctx.fillRect(this.x,this.y,this.width-this.imageOffsetWidth,this.height-this.imageOffsetWidth);
+
         this.ctx.strokeStyle = "#f2f2f2";
         for (let i = this.offsetX; i<this.width-this.imageOffsetWidth; i+=this.gridHeight) {
           this.ctx.moveTo(x + i, y);
@@ -42,7 +44,6 @@ class GridPopup extends Popup {
     }
 
     draw() {
-          this.ctx.lineWidth = .5;
         this.drawGrid(this.x, this.y);
         this.isLoaded && this.ctx.drawImage(
             this.image, 
