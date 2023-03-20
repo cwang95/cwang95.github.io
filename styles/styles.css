@@ -13,6 +13,7 @@ body {
       linear-gradient(to bottom, grey 1px, transparent 1px); */
     background-image: url(../assets/svg/grid.svg);
     font-family: monospace;
+    /* width: 100vh; */
 }
 
 .canvas-container {

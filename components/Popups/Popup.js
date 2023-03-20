@@ -8,7 +8,7 @@ class Popup {
         this.x = config.x;
         this.y = config.y;
         this.image = new Image();
-        this.image.src = config.src || 'assets/images/about.PNG';
+        this.image.src = config.src || 'assets/images/about_transparent.png';
         this.image.onload = () => {
             this.isLoaded = true;
         }
@@ -35,10 +35,13 @@ class Popup {
         const currRatioX = this.x / this.canvas.width;
         const currRatioY = this.y / this.canvas.height;
 
-        const newX = currRatioX * newCanvasWidth;
-        const newY = currRatioY * newCanvasHeight;
+        if (newCanvasWidth < this.canvas.width) {
 
-        this.update(newX, newY, 0);
+            const newX = currRatioX * newCanvasWidth;
+            const newY = currRatioY * newCanvasHeight;
+            this.update(newX, newY, 0);
+        }
+
     }
 
     drawContent() {
@@ -66,8 +69,6 @@ class Popup {
     }
 
     init() {
-        const {x, y} = utils.getInitialCoordinates(this.canvas.width, this.canvas.height, this.posX, this.posY);
-        this.x = x;
-        this.y = y;
+        
     }
 }
