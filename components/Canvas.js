@@ -43,6 +43,8 @@ class Canvas {
         e.preventDefault();
         e.stopPropagation();
         const { x, y } = utils.getMousePos(e, this.canvas, this.ctx);
+
+        this.eyeballs.updateMouse(x, y);
         
         if (this.isDragging){
             var draggingPopup = this.popups[0];
@@ -134,7 +136,6 @@ class Canvas {
             requestAnimationFrame(step);
         }
         step();
-        console.log(this.popups);
     }
 
     handleResize() {
@@ -159,8 +160,8 @@ class Canvas {
 
     initializePopups() {
         this.popups.push(new PixelDraw({
-            x: 600, 
-            y: 450, 
+            x: 500, 
+            y: 400, 
             canvas: this.canvas, 
             id: 2, 
             src: "assets/images/pixeldraw_transparent.png", 
@@ -168,16 +169,16 @@ class Canvas {
             width: 320
         }));
 
-        this.popups.push(new Popup({
-            x: 800, 
-            y: 300,
-            x: 600, 
-            y: 30, 
-            canvas: this.canvas, 
-            id: 0,
-            posX: 0.45,
-            posY: 0.1
-        }));
+        // this.popups.push(new Popup({
+        //     x: 800, 
+        //     y: 300,
+        //     x: 600, 
+        //     y: 30, 
+        //     canvas: this.canvas, 
+        //     id: 0,
+        //     posX: 0.45,
+        //     posY: 0.1
+        // }));
         
         this.popups.push(new GridPopup({
             x: 800, 
@@ -191,9 +192,23 @@ class Canvas {
             posY: 0.25
         }));
 
+        this.eyeballs = new Eyeballs({
+            x: 450, 
+            y: 80,
+            canvas: this.canvas, 
+            id: 4,
+            src: "assets/images/eyeballs2.png", 
+            height: 320, 
+            width: 320,
+            posX: 0.4,
+            posY: 0.1
+        });
+
+        this.popups.push(this.eyeballs);
         for (let i = 0; i<this.popups.length; i++) {
             this.popups[i].init();
         }
+        // this.eyeballs.init();
     }
 
     init() {

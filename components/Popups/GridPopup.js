@@ -1,7 +1,6 @@
 class GridPopup extends Popup {
     constructor(config) {
         super(config);
-        this.animate = false;
         this.offset = 0;
         this.gridHeight = config.gridHeight || 50;
     }
