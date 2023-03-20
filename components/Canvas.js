@@ -160,7 +160,7 @@ class Canvas {
 
     initializePopups() {
         this.popups.push(new PixelDraw({
-            x: 500, 
+            x: 600, 
             y: 400, 
             canvas: this.canvas, 
             id: 2, 
@@ -193,8 +193,8 @@ class Canvas {
         }));
 
         this.eyeballs = new Eyeballs({
-            x: 450, 
-            y: 80,
+            x: 600, 
+            y: 40,
             canvas: this.canvas, 
             id: 4,
             src: "assets/images/eyeballs2.png", 
